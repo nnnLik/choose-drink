@@ -1,6 +1,6 @@
 {
-  "homepage": "http://Greemrock.github.io/test-new",
-  "name": "your-project-name",
+  "homepage": "http://Greemrock.github.io/choose-drink",
+  "name": "choose-drink",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
