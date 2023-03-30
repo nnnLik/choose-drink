@@ -46,6 +46,7 @@ function App() {
                     setState={(value) => {
                       dispatch({ type: actionType, value });
                     }}
+                    state={state}
                   />
                 }
               />
