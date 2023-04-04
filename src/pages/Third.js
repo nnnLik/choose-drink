@@ -8,7 +8,7 @@ export const Third = (props) => {
 
   const postData = async (value) => {
     try {
-      const postUrl = "https://27c3-134-17-26-206.eu.ngrok.io/skany/create/";
+      const postUrl = "https://5b3c-134-17-26-206.eu.ngrok.io/skany/create/";
       const proxyUrl = "https://5scontrol.pl/proxy_to_ngrok/";
 
       const res = await axios.post(proxyUrl, {
