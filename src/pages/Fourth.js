@@ -2,13 +2,15 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Steps.css";
 
-export const Fourth = () => {
+export const Fourth = (props) => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    // reset state
+    props.setState();
+
     let timer = 0;
     const time = 30000;
-
     setTimeout(() => navigate("/"), time);
 
     //log timer

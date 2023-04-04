@@ -23,6 +23,9 @@ function reducer(state, action) {
         satisfy: action.value,
       };
     }
+    case "resetState": {
+      return { team: "none", drink: "none", satisfy: null };
+    }
     default:
       return state;
   }

@@ -19,5 +19,6 @@ export const routesData = [
   {
     path: "/fourth",
     Element: Fourth,
+    actionType: "resetState",
   },
 ];
