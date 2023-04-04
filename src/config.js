@@ -49,13 +49,13 @@ export const thirdStepData = [
     title: "Yes",
     image: `${process.env.PUBLIC_URL}/assets/like-up.png`,
     alt: "Yes",
-    value: true,
+    value: false,
   },
   {
     title: "No",
     image: `${process.env.PUBLIC_URL}/assets/like-down.png`,
     alt: "No",
-    value: false,
+    value: true,
   },
   {
     title: "I won’t tell you",
