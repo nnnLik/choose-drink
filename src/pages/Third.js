@@ -6,7 +6,7 @@ import "./Steps.css";
 export const Third = (props) => {
   const navigate = useNavigate();
 
-  const postData = async () => {
+  const postData = async (value) => {
     try {
       const postUrl = "https://27c3-134-17-26-206.eu.ngrok.io/skany/create/";
       const proxyUrl = "https://5scontrol.pl/proxy_to_ngrok/";
@@ -16,7 +16,7 @@ export const Third = (props) => {
         body: JSON.stringify({
           beverage: props.state.drink,
           worker: props.state.team,
-          status: props.state.satisfy,
+          status: value,
         }),
         method: "POST",
         headers: {
@@ -32,7 +32,7 @@ export const Third = (props) => {
 
   const handleClick = (value) => {
     props.setState(value);
-    postData();
+    postData(value);
     navigate("/fourth");
   };
 
