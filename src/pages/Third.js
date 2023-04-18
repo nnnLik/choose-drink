@@ -8,15 +8,22 @@ export const Third = (props) => {
 
   const postData = async (value) => {
     try {
-      const postUrl = "https://df92-134-17-26-206.eu.ngrok.io/skany/create/";
+      const postUrl = "https://13e6-134-17-26-206.ngrok-free.app/api/reports/all_reports/";
       const proxyUrl = "https://5scontrol.pl/proxy_to_ngrok/";
 
+      const start_tracking = new Date();
+      const stop_tracking = new Date(start_tracking.getTime() + 2 * 60000);
+      
       const res = await axios.post(proxyUrl, {
         url: postUrl,
         body: JSON.stringify({
-          beverage: props.state.drink,
-          worker: props.state.team,
-          status: value,
+          algorithm: algorithm,
+          camera: camera,
+          start_tracking: start_tracking,
+          stop_tracking: stop_tracking,
+          photos: photos,
+          violation_found: value,
+          extra: { worker: props.state.team, beverage: props.state.drink, place: "kitchen" },
         }),
         method: "POST",
         headers: {
