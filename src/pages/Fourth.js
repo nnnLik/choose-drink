@@ -2,12 +2,12 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Steps.css";
 
-export const Fourth = (props) => {
+export const Fourth = ({ setState }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
     // reset state
-    props.setState();
+    setState();
 
     let timer = 0;
     const time = 30000;
@@ -18,7 +18,7 @@ export const Fourth = (props) => {
     const interval = setInterval(() => console.log(++timer + " second"), 1000);
 
     return () => clearInterval(interval);
-  }, [navigate]);
+  }, [setState, navigate]);
 
   return (
     <section className="step">
