@@ -8,29 +8,36 @@ export const Third = (props) => {
 
   const postData = async (value) => {
     try {
-      const postUrl = "https://13e6-134-17-26-206.ngrok-free.app/api/reports/all_reports/";
+      const postUrl = "https://a56d-134-17-26-206.ngrok-free.app/api/reports/report-with-photos/";
       const proxyUrl = "https://5scontrol.pl/proxy_to_ngrok/";
 
       const start_tracking = new Date();
       const stop_tracking = new Date(start_tracking.getTime() + 2 * 60000);
       
+      let responseData = JSON.stringify({
+        algorithm: "operation_control",
+        camera: "192.168.1.111",
+        start_tracking: start_tracking,
+        stop_tracking: stop_tracking,
+        photos: [
+          {
+          "image": "images/192.168.1.111/ebb7057f-529e-4f47-a739-a61f0cd058b5.jpeg",
+          "date": start_tracking
+        }
+      ],
+        violation_found: value,
+        extra: [{ worker: props.state.team, beverage: props.state.drink, place: "kitchen" }],
+      })
       const res = await axios.post(proxyUrl, {
         url: postUrl,
-        body: JSON.stringify({
-          algorithm: algorithm,
-          camera: camera,
-          start_tracking: start_tracking,
-          stop_tracking: stop_tracking,
-          photos: photos,
-          violation_found: value,
-          extra: { worker: props.state.team, beverage: props.state.drink, place: "kitchen" },
-        }),
+        body: responseData,
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
       });
 
+      console.log(responseData);
       console.log("response", res);
     } catch (err) {
       console.log(err);
